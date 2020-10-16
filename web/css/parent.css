@@ -1,0 +1,21 @@
+table{
+    border: 1px solid black;
+}
+
+table td{
+    border: 1px solid black;
+}
+
+.pRefer{
+    border: 1px solid black;
+    padding: 5px;
+    display: block;
+    margin-top: 10px;
+    width: 120px;
+    text-align: center;
+    color: black;
+}
+
+
+
+
