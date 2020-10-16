@@ -25,21 +25,22 @@ class RegistrationController extends Controller
             $model->save();
                     //Запись в Parent ИЛИ Worker
             if($model->role == 1){
-
                 $parent = new ParentModel();
                 $parent->name = $post['Registration']['name'];
                 $parent->login = $post['Registration']['login'];
                 $parent->save();
 
-//                $model = new ParentModel();
-//                Yii::$app->session->set('model', $model); //Для передачи модели в view
                 Yii::$app->session->setFlash('success', 'Данные приняты');
+                Yii::$app->session->set('parent', $parent->id); //Передача родителя в сессии
                 return $this->redirect('../parent/index');
             }else{
                 $worker = new Worker();
                 $worker->name = $post['Registration']['name'];
                 $worker->login = $post['Registration']['login'];
                 $worker->save();
+
+                Yii::$app->session->setFlash('success', 'Данные приняты');
+                return $this->redirect('../worker/index');
             }
 
         }

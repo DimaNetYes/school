@@ -14,11 +14,11 @@ $items=[
     10=>'Детсад №3',
     16=>'Детсад №4',
 ];
-
+                //Нужно вставить обратно model и добавиьт поле kindergarden
     $form = ActiveForm::begin(['options' => ['class' => 'form-group', 'method' => 'post']]);
     echo $form->field($model, 'childName')->label('Имя');
     echo $form->field($model, 'birthday')->input('date', ['class' => 'form-control'])->label('Дата рождения');
-    echo $form->field($model, 'kindergarden_id')->dropDownList($items)->label('Детсад');
+    echo $form->field($pka, 'kindergarden_id')->dropDownList($items)->label('Детсад');
     echo Html::submitButton('Добавить', ['class' => 'btnSuccess']);
     ActiveForm::end();
     ?>

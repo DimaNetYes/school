@@ -8,7 +8,7 @@ use yii\db\ActiveRecord;
 
 class Appeal extends ActiveRecord
 {
-    public $name, $birthday, $kindergarden;
+    public $name, $birthday;
     public function rules()
     {
         return [

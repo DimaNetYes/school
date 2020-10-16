@@ -9,8 +9,7 @@ use yii\db\ActiveRecord;
 
 class Registration extends ActiveRecord
 {
-//    public $id;
-//    public $login = '1234';
+//    public $login;
 //    public $password;
 //    public $name;
 //    public $role;

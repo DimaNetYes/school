@@ -5,6 +5,7 @@ namespace app\controllers;
 
 
 use app\models\Appeal;
+use app\models\Pka;
 use yii\web\Controller;
 
 class ParentController extends Controller
@@ -18,7 +19,9 @@ class ParentController extends Controller
     public function actionAppealNew()
     {
         $model = new Appeal();
-        return $this->render('appealNew', ['model' => $model]);
+        $pka = new Pka();
+
+        return $this->render('appealNew', ['model' => $model, 'pka' => $pka]);
     }
 
 }

@@ -34,6 +34,7 @@ if (Yii::$app->session->hasFlash('success')) {
     </table>
     <?php
         echo Html::a('Новая заявка', ['parent/appeal-new'], ['class' => 'pRefer']);
+        print_r($model);
     ?>
 </div>
 
