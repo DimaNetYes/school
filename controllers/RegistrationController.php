@@ -19,7 +19,7 @@ class RegistrationController extends Controller
             $post = Yii::$app->request->post();
                 //Запись в Registration
             $model->login = $post['Registration']['login'];
-            $model->password = $post['Registration']['password'];
+            $model->password = Yii::$app->security->generatePasswordHash($post['Registration']['password']);
             $model->name = $post['Registration']['name'];
             $model->role = $post['Registration']['role'];
             $model->save();
@@ -32,7 +32,7 @@ class RegistrationController extends Controller
 
                 Yii::$app->session->setFlash('success', 'Данные приняты');
                 Yii::$app->session->set('parent', $parent->id); //Передача родителя в сессии
-                return $this->redirect('../parent/index');
+                return $this->redirect('parent/index');
             }else{
                 $worker = new Worker();
                 $worker->name = $post['Registration']['name'];
@@ -40,7 +40,7 @@ class RegistrationController extends Controller
                 $worker->save();
 
                 Yii::$app->session->setFlash('success', 'Данные приняты');
-                return $this->redirect('../worker/index');
+                return $this->redirect('worker/index');
             }
 
         }

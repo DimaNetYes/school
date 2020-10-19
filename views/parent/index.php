@@ -23,18 +23,28 @@ if (Yii::$app->session->hasFlash('success')) {
             <td>Заявок впереди</td>
             <td>Мест в саду</td>
         </tr>
-        <tr>
-            <td>фвыа</td>
-            <td>вфыафвы</td>
-            <td>авфыа</td>
-            <td>фвыа</td>
-            <td>фвыа</td>
-            <td>фвыа</td>
-        </tr>
+        <?php
+        $status = [1 => 'На рассмотрении', 2 => 'Принята', 3 => 'Отклонена', 4 => 'Нет мест'];
+            foreach ($model as $key => $value){
+                $n = $value->status;
+                $test=serialize($value);
+                echo "<tr>
+                        <td>$value->id</td>
+                        <td>$value->date</td>
+                        <td>
+                        <a href='detail-cab?id=$value->id'>$value->childName , $value->birthday</a>
+                        </td>
+                        <td> $status[$n] </td>
+                        <td>$appealsBefore[$key]</td>
+                        <td></td>
+                    </tr>";
+            }
+        ?>
+
+
     </table>
     <?php
         echo Html::a('Новая заявка', ['parent/appeal-new'], ['class' => 'pRefer']);
-        print_r($model);
     ?>
 </div>
 
