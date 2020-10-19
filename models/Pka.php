@@ -4,7 +4,9 @@
 namespace app\models;
 
 
-class Pka
+use yii\db\ActiveRecord;
+
+class Pka extends ActiveRecord
 {
 //    public $parent_id, $kindergarden_id, $appeal_id;
 

@@ -12,7 +12,7 @@ class Appeal extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'birthday', 'kindergarden'], 'required'],
+            [['name', 'birthday'], 'required'],
             ['name', 'string']
         ];
     }
