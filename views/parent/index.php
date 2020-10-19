@@ -32,7 +32,8 @@ if (Yii::$app->session->hasFlash('success')) {
                         <td>$value->id</td>
                         <td>$value->date</td>
                         <td>
-                        <a href='detail-cab?id=$value->id'>$value->childName , $value->birthday</a>
+                        
+                        " . Html::a($value->childName . ', ' . $value->birthday, ['detail-cab', 'id' => $value->id]) . "
                         </td>
                         <td> $status[$n] </td>
                         <td>$appealsBefore[$key]</td>

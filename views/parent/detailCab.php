@@ -48,6 +48,7 @@ use yii\widgets\ActiveForm;
         $form = ActiveForm::begin(['options' => ['class' => 'form-group', 'method' => 'post']]);
         echo $form->field($appeal, 'childName')->input('text', ['readonly' => true])->label('Имя');
         echo $form->field($appeal, 'birthday')->input('date', ['class' => 'form-control', 'readonly' => true])->label('Дата рождения');
+        echo $form->field($appeal, 'appeal_id')->hiddenInput(['value' => $appeal->id]);
         echo $form->field($pka, 'kindergarden_id')->dropDownList($items)->label('Детсад');
         echo Html::submitButton('Сохранить', ['class' => 'btnSave', 'name' => 'save', 'value' => 1]);
         echo Html::submitButton('Удалить', ['class' => 'btnDelete', 'name' => 'delete', 'value' => 2]);
