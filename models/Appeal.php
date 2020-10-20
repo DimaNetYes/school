@@ -19,4 +19,11 @@ class Appeal extends ActiveRecord
         ];
     }
 
+    public function attributeLabels()
+    {
+        return [
+            'appeal_id' => '',
+        ];
+    }
+
 }

@@ -32,7 +32,6 @@ if (Yii::$app->session->hasFlash('success')) {
                         <td>$value->id</td>
                         <td>$value->date</td>
                         <td>
-                        
                         " . Html::a($value->childName . ', ' . $value->birthday, ['detail-cab', 'id' => $value->id]) . "
                         </td>
                         <td> $status[$n] </td>
