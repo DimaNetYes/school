@@ -26,4 +26,9 @@ class Appeal extends ActiveRecord
         ];
     }
 
+    public function getPka()
+    {
+        return $this->hasMany(Pka::className(), ['appeal_id' => 'id']);
+    }
+
 }

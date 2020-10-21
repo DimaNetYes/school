@@ -4,7 +4,6 @@
 ?>
 
 <?php
-//    print_r($model);
 //    $model->role = 1;
     $form = ActiveForm::begin(['options' => ['class' => 'form-group', 'method' => 'post', 'action' => ['']]]);
     echo $form->field($model, 'login')->label('Логин');

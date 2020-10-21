@@ -19,13 +19,14 @@
         }
 
         $form = ActiveForm::begin((['options' => ['class' => 'form-group', 'method' => 'post']]));
-        echo $form->field($appeal, 'childName')->input('text')->label('Имя');
-        echo $form->field($appeal, 'birthday')->input('date', ['class' => 'form-control'])->label('Дата рождения');
+        echo $form->field($appeal, 'childName')->input('text', ['disabled' => $disabled])->label('Имя');
+        echo $form->field($appeal, 'birthday')->input('date', ['class' => 'form-control', 'disabled' => $disabled])->label('Дата рождения');
         echo $form->field($appeal, 'appeal_id')->hiddenInput(['value' => $appeal->id]);
         echo $form->field($pka, 'kindergarden_id')->dropDownList($items)->label('Детсад');
-        echo Html::submitButton('Принять', ['class' => 'btnSave', 'name' => 'save', 'value' => 1]);
-        echo Html::submitButton('Отклонить', ['class' => 'btnDelete', 'name' => 'cancel', 'value' => 2]);
-        echo Html::submitButton('Выйти', ['class' => 'btnDelete', 'name' => 'exit', 'value' => 3]);
+        echo Html::submitButton('Принять', ['class' => 'btnSave', 'name' => 'save', 'value' => 1, 'disabled' => $capacity]);
+        echo Html::submitButton('Отклонить', ['class' => 'btnDelete', 'name' => 'cancel', 'value' => $capacityC, 'disabled' => $disabled]);
+//        echo Html::submitButton('Выйти', ['class' => 'btnDelete', 'name' => 'exit', 'value' => 3]);
+        echo Html::a('Выйти', '../worker');
         ActiveForm::end();
     ?>
 </div>

@@ -8,9 +8,11 @@ use yii\widgets\ActiveForm;
     <h3>Новая заявка</h3>
     <?php
 
-$items=[];
-foreach ($kindergarden as $key => $val){
-    $items[$val->id ] = $val->name;
+$items = [];
+foreach ($kindergarden as $key => $val) {
+    if($val->capacity > 0) {
+        $items[$val->id] = $val->name;
+    }
 }
 //print_r($kindergarden);
                 //Нужно вставить обратно model и добавиьт поле kindergarden

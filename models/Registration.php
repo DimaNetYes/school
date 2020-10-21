@@ -75,4 +75,9 @@ class Registration extends ActiveRecord implements IdentityInterface
         // TODO: Implement validateAuthKey() method.
         return $this->getAuthKey() === $authKey;
     }
+
+    public function getPka()
+    {
+        return $this->hasMany(Pka::className(), ['parent_id' => 'id']);
+    }
 }

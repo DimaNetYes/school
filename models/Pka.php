@@ -21,4 +21,19 @@ class Pka extends ActiveRecord
         ];
     }
 
+    public function getAppeal()
+    {
+        return $this->hasOne(Appeal::className(), ['id' => 'appeal_id']);
+    }
+
+    public function getKindergarden()
+    {
+        return $this->hasOne(Kindergarden::className(), ['id' => 'kindergarden_id']);
+    }
+
+    public function getRegistration()
+    {
+        return $this->hasOne(Registration::className(), ['id' => 'parent_id']);
+    }
+
 }

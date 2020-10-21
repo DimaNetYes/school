@@ -1,6 +1,7 @@
 <?php
 use app\assets\AppAsset;
 use yii\helpers\Html;
+use yii\widgets\Breadcrumbs;
 
 AppAsset::register($this);
 
@@ -22,6 +23,14 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody();?>
 
+    <?= $this->params['breadcrumbs'][] = [
+            'template' => "<li><b>{link}</b></li>\n", //  шаблон для этой ссылки
+            'label' => 'Категория', // название ссылки
+            'url' => ['/category'] // сама ссылка
+        ];
+        $this->params['breadcrumbs'][] = ['label' => 'Подкатегория', 'url' => ['/category/subcategory']];
+$this->params['breadcrumbs'][] = ['label' => 'Подкатегория', 'url' => ['/category/subcategory']];
+    ?>
 
 
 <?= $content ?>

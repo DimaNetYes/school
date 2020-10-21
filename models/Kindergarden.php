@@ -19,4 +19,9 @@ class Kindergarden extends ActiveRecord
 
         ];
     }
+
+    public function getPka()
+    {
+        return $this->hasMany(Pka::className(), ['kindergarden_id' => 'id']);
+    }
 }
