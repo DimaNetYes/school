@@ -72,7 +72,6 @@ class ParentController extends Controller
             $pka->kindergarden_id = $post['Pka']['kindergarden_id'];
             $pka->appeal_id = $lastAppeal['id'] + 1;
             $pka->save();
-//            print_r($pka);
 
             Yii::$app->session->setFlash('success', 'Заявка успешно создана');
             return $this->redirect('../parent');

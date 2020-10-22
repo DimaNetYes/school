@@ -1,33 +1,30 @@
 <?php
 
-
 namespace app\models;
-
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use yii\db\ActiveRecord;
+use app\models\AppealGrid;
 
-class Appeal extends ActiveRecord
+/**
+ * AppealGridSearch represents the model behind the search form of `app\models\AppealGrid`.
+ */
+class AppealGridSearch extends AppealGrid
 {
-    public $statusCode = [1 => 'На рассмотрении', 2 => 'Принята', 3 => 'Отклонена', 4 => 'Нет мест'];
-//    public $childName, $birthday;
-    public $appeal_id;
-
+    /**
+     * {@inheritdoc}
+     */
     public function rules()
     {
         return [
-            [['childName', 'birthday'], 'required'],
-            ['childName', 'string']
+            [['id', 'number'], 'integer'],
+            [['date', 'childName', 'birthday', 'status', 'rejectionReason'], 'safe'],
         ];
     }
 
-    public function attributeLabels()
-    {
-        return [
-            'appeal_id' => '',
-        ];
-    }
+    /**
+     * {@inheritdoc}
+     */
     public function scenarios()
     {
         // bypass scenarios() implementation in the parent class
@@ -79,11 +76,6 @@ class Appeal extends ActiveRecord
             ->andFilterWhere(['like', 'rejectionReason', $this->rejectionReason]);
 
         return $dataProvider;
-    }
-
-    public function getPka()
-    {
-        return $this->hasMany(Pka::className(), ['appeal_id' => 'id']);
     }
 
 }

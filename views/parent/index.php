@@ -9,25 +9,14 @@ if (Yii::$app->session->hasFlash('success')) {
     echo Yii::$app->session->getFlash('success');
     echo "</div>";
 }
-$this->params['breadcrumbs'][] = array(
-    'label'=> 'Раздел',
-    'url'=>'/section/'
-);
+$this->params['breadcrumbs'][] = '';
 
-$this->params['breadcrumbs'][] = array(
-    'label'=> 'Категория',
-    'url'=>'/category/'
-);
-
-$this->params['breadcrumbs'][] = array(
-    'label'=> 1,
-    'url'=>'/photo/'
-);
 ?>
 
 <div class="container">
     <h1>Кабинет родителей</h1>
     <h3>Заявки</h3>
+    <?= Html::a('Grid', 'http://localhost/basic/web/appeal-grid/index') ?>
     <table>
         <tr>
             <td>#</td>
@@ -38,9 +27,7 @@ $this->params['breadcrumbs'][] = array(
             <td>Мест в саду</td>
         </tr>
 <?php
-        $status = [1 => 'На рассмотрении', 2 => 'Принята', 3 => 'Отклонена', 4 => 'Нет мест'];
         foreach ($model as $key => $value):
-            $n = $value->status;
             $test=serialize($value);
 ?>
 
@@ -50,7 +37,7 @@ $this->params['breadcrumbs'][] = array(
                 <td>
                 <?= Html::a($value->childName . ', ' . $value->birthday, ['detail-cab', 'id' => $value->id]) ?>
                 </td>
-                <td><?= $status[$n] ?></td>
+                <td><?= $value->statusCode[$value->status]?></td>
 
                 <?php if($value->status == 1): ?>
                     <td><?=$appealsBefore[$key] ?></td>
@@ -59,7 +46,6 @@ $this->params['breadcrumbs'][] = array(
                     <td></td>
                     <td></td>
                 <?php endif; ?>
-
            </tr>
 
 <?php endforeach; ?>

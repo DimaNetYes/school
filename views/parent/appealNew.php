@@ -1,6 +1,11 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+
+$this->params['breadcrumbs'][] = array(
+    'label'=> 'Заявки',
+);
+
 ?>
 
 <div class="container">

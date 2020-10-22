@@ -9,8 +9,4 @@ class Country extends ActiveRecord
 {
 
 
-
-
-
-
 }

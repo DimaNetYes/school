@@ -23,13 +23,14 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody();?>
 
-    <?= $this->params['breadcrumbs'][] = [
-            'template' => "<li><b>{link}</b></li>\n", //  шаблон для этой ссылки
-            'label' => 'Категория', // название ссылки
-            'url' => ['/category'] // сама ссылка
-        ];
-        $this->params['breadcrumbs'][] = ['label' => 'Подкатегория', 'url' => ['/category/subcategory']];
-$this->params['breadcrumbs'][] = ['label' => 'Подкатегория', 'url' => ['/category/subcategory']];
+    <?= Breadcrumbs::widget([
+            'homeLink' => [
+                    'label' => 'Главная', 'url' => 'http://localhost/basic/web/parent/index',
+                    'title' => 'Главная страница',
+                ],
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+
+    ]);
     ?>
 
 
